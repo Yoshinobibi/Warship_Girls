@@ -18,14 +18,44 @@
     <script src="<%=path%>/webpage/plug-in/jquery/jquery-1.12.2.min.js"></script>
     <script src="<%=path%>/webpage/plug-in/bootstrap/js/bootstrap.min.js"></script>
     <script src="<%=path%>/webpage/plug-in/jquery/jquery.validate.min.js"></script>
+    <style type="text/css">
+        body {  padding-top: 40px;  }
+    </style>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand brand-white scrolled" href="/">Warship Girls</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class>
+                    <a href="#">Home</a>
+                </li>
+                <li class>
+                    <a href="##">Home2</a>
+                </li>
+                <li class>
+                    <a href="###">Home3</a>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <a class="btn btn-primary u-2 signin" href="loginController.do?go_login">Sign In</a>
+                <a class="btn btn-primary u-1 signup" href="userController.do?go_register">Sign Up</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="Sign Up">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
                 <div class="col-md-4 col-md-offset-4">
                     <h2 class="title sm-dv text-center">Sign Up</h2>
                     <form id="Register_Form" method="post" class="animated fadeIn" action="userController.do?do_register">
+
                         <div class="form-group">
                             <div class="input-with-icon right">
                                 <input type="text" class="form-control" id="username" name="username" placeholder="Your Name" />
@@ -51,46 +81,50 @@
                         </div>
                     </form>
                 </div>
-            <%--</div>--%>
+            </div>
         </div>
     </div>
 </div>
+
 <script type="text/javascript">
     $( document ).ready( function () {
         $( "#Register_Form" ).validate( {
             rules: {
                 username: {
                     required: true,
-                    minlength: 3
+                    minlength: 3,
+                    maxlength:20
                 },
                 password: {
                     required: true,
-                    minlength: 6
+                    minlength: 6,
+                    maxlength:20
                 },
                 confirm_password: {
                     required: true,
                     minlength: 6,
                     equalTo: "#password"
-                },
+                }
             },
             messages: {
                 username: {
                     required: "A name is required",
-                    minlength: "A name must be at least 3 character"
+                    minlength: "A name must be at least 3 characters",
+                    maxlength:"A name must be at most 20 characters"
                 },
                 password: {
                     required: "A password is required",
-                    minlength: "Password must be at least 6 characters"
+                    minlength: "Password must be at least 6 characters",
+                    maxlength:"A name must be at most 20 characters"
                 },
                 confirm_password: {
                     required: "Confirm password is required",
                     minlength: "Password must be at least 6 characters",
                     equalTo: "Passwords do not match"
-                },
+                }
             },
             errorElement: "em",
             errorPlacement: function ( error, element ) {
-                // Add the `help-block` class to the error element
                 error.addClass( "help-block" );
 
                 if ( element.prop( "type" ) === "checkbox" ) {

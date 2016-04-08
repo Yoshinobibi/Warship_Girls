@@ -19,12 +19,14 @@ public class LoginController {
     public String go_login(){
         return "login";
     }
+
     @RequestMapping(params = "do_login")
     @ResponseBody
     public String do_login(HttpServletRequest request) {
         AjaxJson ajaxJson = new AjaxJson();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+
         if (username.equals("songshuang") && password.equals("123456")) {
             ajaxJson.setSuccess(true);
             ajaxJson.setMessage("Success!");
