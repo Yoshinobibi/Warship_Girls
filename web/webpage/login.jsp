@@ -19,7 +19,7 @@
     <script src="<%=path%>/webpage/plug-in/bootstrap/js/bootstrap.min.js"></script>
     <script src="<%=path%>/webpage/plug-in/jquery/jquery.validate.min.js"></script>
     <style type="text/css">
-        body {  padding-top: 40px;  }
+        body {  padding-top: 50px;  }
         .navform {
             padding: 10px 15px;
             border-top: 1px solid #EEEEEE;
