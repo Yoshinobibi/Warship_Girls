@@ -20,13 +20,26 @@
     <script src="<%=path%>/webpage/plug-in/jquery/jquery.validate.min.js"></script>
     <style type="text/css">
         body {  padding-top: 40px;  }
+        .navform {
+            padding: 10px 15px;
+            border-top: 1px solid #EEEEEE;
+            border-bottom: 1px solid #EEEEEE;
+            -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1),0 1px 0 rgba(255,255,255,.1);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.1),0 1px 0 rgba(255,255,255,.1);
+        }
     </style>
 </head>
 <body>
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand brand-white scrolled" href="/">Warship Girls</a>
+            <a class="navbar-brand" href="/">Warship Girls</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -40,9 +53,9 @@
                     <a href="###">Home3</a>
                 </li>
             </ul>
-            <form class="navbar-form navbar-right">
-                <a class="btn btn-primary u-2 signin" href="loginController.do?go_login">Sign In</a>
-                <a class="btn btn-primary u-1 signup" href="userController.do?go_register">Sign Up</a>
+            <form class="navform navbar-right">
+                <a class="btn btn-primary" href="loginController.do?go_login">Sign In</a>
+                <a class="btn btn-primary" href="userController.do?go_register">Sign Up</a>
             </form>
         </div>
     </div>
