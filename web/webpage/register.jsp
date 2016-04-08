@@ -20,12 +20,28 @@
     <script src="<%=path%>/webpage/plug-in/jquery/jquery.validate.min.js"></script>
     <style type="text/css">
         body {  padding-top: 50px;  }
-        .navform {
+        #navform {
             padding: 10px 15px;
             border-top: 1px solid #EEEEEE;
             border-bottom: 1px solid #EEEEEE;
             -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1),0 1px 0 rgba(255,255,255,.1);
             box-shadow: inset 0 1px 0 rgba(255,255,255,.1),0 1px 0 rgba(255,255,255,.1);
+        }
+        #register-wrap {
+            text-align: center;
+            max-width: 455px;
+            margin: 0 auto;
+            margin-top: 0px;
+            margin-right: auto;
+            margin-bottom: 0px;
+            margin-left: auto;
+            padding: 80px 0 100px;
+        }
+        #register-wrap h2 {
+            font-weight: 300;
+            line-height: 37px;
+            margin-bottom: 54px;
+            margin-top: 8px;
         }
     </style>
 </head>
@@ -54,7 +70,7 @@
                     <a href="###">Home3</a>
                 </li>
             </ul>
-            <form class="navform navbar-right">
+            <form id="navform" class="navbar-right">
                 <a class="btn btn-primary" href="loginController.do?go_login">Sign In</a>
                 <a class="btn btn-primary" href="userController.do?go_register">Sign Up</a>
             </form>
@@ -66,8 +82,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="col-md-4 col-md-offset-4">
-                    <h2 class="title sm-dv text-center">Sign Up</h2>
+                <div id="register-wrap">
+                    <h2 class="title text-center">Sign Up</h2>
                     <form id="Register_Form" method="post" class="animated fadeIn" action="userController.do?do_register">
 
                         <div class="form-group">
@@ -166,6 +182,11 @@
                     dataType: "json",
                     success: function(data) {
                         alert(data.message);
+                        if (data.success){
+                            window.location.href="http://www.baidu.com"
+                        }else if (!data.success){
+                            window.location.href="##"
+                        }
                     }
                 })
             }

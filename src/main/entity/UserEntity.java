@@ -38,7 +38,7 @@ public class UserEntity implements Serializable {
     public void setId(String id){
         this.id = id;
     }
-    @Column(length = 32)
+    @Column(length = 32,unique = true)
     public String getUsername(){
         return username;
     }

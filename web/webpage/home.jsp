@@ -20,12 +20,28 @@
     <script src="<%=path%>/webpage/plug-in/jquery/jquery.validate.min.js"></script>
     <style type="text/css">
         body {  padding-top: 50px;  }
-        .navform {
+        #navform {
             padding: 10px 15px;
             border-top: 1px solid #EEEEEE;
             border-bottom: 1px solid #EEEEEE;
             -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1),0 1px 0 rgba(255,255,255,.1);
             box-shadow: inset 0 1px 0 rgba(255,255,255,.1),0 1px 0 rgba(255,255,255,.1);
+        }
+        #login-wrap {
+            text-align: center;
+            max-width: 455px;
+            margin: 0 auto;
+            margin-top: 0px;
+            margin-right: auto;
+            margin-bottom: 0px;
+            margin-left: auto;
+            padding: 80px 0 100px;
+        }
+        #login-wrap h2 {
+            font-weight: 300;
+            line-height: 37px;
+            margin-bottom: 54px;
+            margin-top: 8px;
         }
     </style>
 </head>
@@ -53,7 +69,7 @@
                     <a href="###">Home3</a>
                 </li>
             </ul>
-            <form class="navform navbar-right">
+            <form id="navform" class="navbar-right">
                 <a class="btn btn-primary" href="loginController.do?go_login">Sign In</a>
                 <a class="btn btn-primary" href="userController.do?go_register">Sign Up</a>
             </form>

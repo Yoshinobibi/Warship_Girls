@@ -14,18 +14,35 @@
 <html>
 <head>
     <title>login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=1.0, user-scalable=no">
     <link  href="<%=path%>/webpage/plug-in/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <script src="<%=path%>/webpage/plug-in/jquery/jquery-1.12.2.min.js"></script>
     <script src="<%=path%>/webpage/plug-in/bootstrap/js/bootstrap.min.js"></script>
     <script src="<%=path%>/webpage/plug-in/jquery/jquery.validate.min.js"></script>
     <style type="text/css">
         body {  padding-top: 50px;  }
-        .navform {
+        #navform {
             padding: 10px 15px;
             border-top: 1px solid #EEEEEE;
             border-bottom: 1px solid #EEEEEE;
             -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1),0 1px 0 rgba(255,255,255,.1);
             box-shadow: inset 0 1px 0 rgba(255,255,255,.1),0 1px 0 rgba(255,255,255,.1);
+        }
+        #login-wrap {
+            text-align: center;
+            max-width: 455px;
+            margin: 0 auto;
+            margin-top: 0px;
+            margin-right: auto;
+            margin-bottom: 0px;
+            margin-left: auto;
+            padding: 80px 0 100px;
+        }
+        #login-wrap h2 {
+            font-weight: 300;
+            line-height: 37px;
+            margin-bottom: 54px;
+            margin-top: 8px;
         }
     </style>
 </head>
@@ -54,7 +71,7 @@
                     <a href="###">Home3</a>
                 </li>
             </ul>
-            <form class="navform navbar-right">
+            <form id="navform" class="navbar-right">
                 <a class="btn btn-primary" href="loginController.do?go_login">Sign In</a>
                 <a class="btn btn-primary" href="userController.do?go_register">Sign Up</a>
             </form>
@@ -66,9 +83,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="col-md-4 col-md-offset-4">
-                    <h2 class="title sm-dv text-center">Sign In</h2>
-                    <form id="Register_Form" method="post" class="animated fadeIn" action="loginController.do?do_login">
+                <div id="login-wrap">
+                    <h2 class="title text-center" margin-bottom="">Sign In</h2>
+                    <form id="Register_Form" method="post" action="loginController.do?do_login">
 
                         <div class="form-group">
                             <div class="input-with-icon right">
