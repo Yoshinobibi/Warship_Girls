@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JQuery-validation demo | Bootstrap</title>
+    <title>register</title>
     <link  href="<%=path%>/webpage/plug-in/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <script src="<%=path%>/webpage/plug-in/jquery/jquery-1.12.2.min.js"></script>
     <script src="<%=path%>/webpage/plug-in/bootstrap/js/bootstrap.min.js"></script>
@@ -22,52 +22,40 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Simple Form</h3>
-                </div>
-                <div class="panel-body">
-                    <form id="Register_Form" method="post" class="form-horizontal" action="userController.do?do_register">
-
+        <div class="col-lg-12">
+                <div class="col-md-4 col-md-offset-4">
+                    <h2 class="title sm-dv text-center">Sign Up</h2>
+                    <form id="Register_Form" method="post" class="animated fadeIn" action="userController.do?do_register">
                         <div class="form-group">
-                            <label class="col-sm-4 control-label" for="username">Username</label>
-                            <div class="col-sm-5">
+                            <div class="input-with-icon right">
                                 <input type="text" class="form-control" id="username" name="username" placeholder="Your Name" />
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-4 control-label" for="password">Password</label>
-                            <div class="col-sm-5">
+                            <div class="input-with-icon right">
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Choose a password" />
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-4 control-label" for="confirm_password">Confirm password</label>
-                            <div class="col-sm-5">
+                            <div class="input-with-icon right">
                                 <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm your password" />
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <div class="col-sm-9 col-sm-offset-4">
-                                <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Sign up</button>
+                            <div class="input-with-icon right">
+                                <input type="submit" class="btn btn-primary btn-block" name="signup" value="Sign up"/>
                             </div>
                         </div>
                     </form>
                 </div>
-            </div>
+            <%--</div>--%>
         </div>
     </div>
 </div>
 <script type="text/javascript">
-    $.validator.setDefaults( {
-        submitHandler: function () {
-            alert( "submitted!" );
-        }
-    } );
     $( document ).ready( function () {
         $( "#Register_Form" ).validate( {
             rules: {
@@ -112,10 +100,10 @@
                 }
             },
             highlight: function ( element, errorClass, validClass ) {
-                $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
+                $( element ).parents( ".input-with-icon" ).addClass( "has-error" ).removeClass( "has-success" );
             },
             unhighlight: function (element, errorClass, validClass) {
-                $( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
+                $( element ).parents( ".input-with-icon" ).addClass( "has-success" ).removeClass( "has-error" );
             },
             submitHandler: function(form){
                 var username = $('#username').val().trim();
@@ -125,14 +113,14 @@
                     url: "userController.do?do_register",
                     data:{
                         username:username,
-                        password:password,
+                        password:password
                     },
                     dataType: "json",
                     success: function(data) {
                         alert(data.message);
-                    },
+                    }
                 })
-            },
+            }
         } );
     } );
 </script>

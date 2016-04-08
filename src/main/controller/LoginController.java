@@ -3,6 +3,9 @@ package main.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import system.AjaxJson;
+
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -17,17 +20,19 @@ public class LoginController {
         return "login";
     }
     @RequestMapping(params = "do_login")
-    public String do_login(HttpServletRequest request){
+    @ResponseBody
+    public String do_login(HttpServletRequest request) {
+        AjaxJson ajaxJson = new AjaxJson();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        System.out.println("login");
-        System.out.println(username);
-        System.out.println(password);
-        if (username.equals("songshuang")&&password.equals("123456")){
-            return "success";
-        }else
-            return "failure";
+        if (username.equals("songshuang") && password.equals("123456")) {
+            ajaxJson.setSuccess(true);
+            ajaxJson.setMessage("Success!");
+            return ajaxJson.getJsonStr();
+        } else {
+            ajaxJson.setSuccess(false);
+            ajaxJson.setMessage("Failure!");
+            return ajaxJson.getJsonStr();
+        }
     }
-
-
 }
