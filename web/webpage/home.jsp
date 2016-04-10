@@ -27,22 +27,6 @@
             -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1),0 1px 0 rgba(255,255,255,.1);
             box-shadow: inset 0 1px 0 rgba(255,255,255,.1),0 1px 0 rgba(255,255,255,.1);
         }
-        #login-wrap {
-            text-align: center;
-            max-width: 455px;
-            margin: 0 auto;
-            margin-top: 0px;
-            margin-right: auto;
-            margin-bottom: 0px;
-            margin-left: auto;
-            padding: 80px 0 100px;
-        }
-        #login-wrap h2 {
-            font-weight: 300;
-            line-height: 37px;
-            margin-bottom: 54px;
-            margin-top: 8px;
-        }
     </style>
 </head>
 <body>

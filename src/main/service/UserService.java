@@ -15,9 +15,8 @@ import system.HibernateUtil;
 public class UserService extends HibernateUtil implements UserDao{
 
     @Override
-    public void addUser(UserEntity userEntity){
+    public void doAddSql(UserEntity userEntity){
 
         getSession().save(userEntity);
-//        getSession().close();
     }
 }

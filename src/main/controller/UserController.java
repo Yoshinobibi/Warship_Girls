@@ -38,7 +38,7 @@ public class UserController implements Serializable{
         userEntity.setUsername(username);
         userEntity.setPassword(MD5Util.md5(password));
         userEntity.setCreate_date(new Date());
-        userDao.addUser(userEntity);
+        userDao.doAddSql(userEntity);
         AjaxJson ajaxJson = new AjaxJson();
         ajaxJson.setMessage("成功！");
         return ajaxJson.getJsonStr();

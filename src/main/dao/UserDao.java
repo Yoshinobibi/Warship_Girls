@@ -2,10 +2,13 @@ package main.dao;
 
 import main.entity.UserEntity;
 
+import java.util.List;
+
 
 /**
  * Created by 95 on 2016/4/2.
  */
 public interface UserDao {
-    public void addUser(UserEntity userEntity);
+    public void doAddSql(UserEntity userEntity);
+//    public List doQuerySql();
 }
