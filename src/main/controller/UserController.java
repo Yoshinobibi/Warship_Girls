@@ -34,13 +34,24 @@ public class UserController implements Serializable{
     public String do_register(UserEntity userEntity,HttpServletRequest request){
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-
-        userEntity.setUsername(username);
-        userEntity.setPassword(MD5Util.md5(password));
-        userEntity.setCreate_date(new Date());
-        userDao.doAddSql(userEntity);
         AjaxJson ajaxJson = new AjaxJson();
-        ajaxJson.setMessage("成功！");
-        return ajaxJson.getJsonStr();
+
+        if (userDao.doQuerySql(username).size() < 1){
+            userEntity.setUsername(username);
+            userEntity.setPassword(MD5Util.md5(password));
+            userEntity.setCreate_date(new Date());
+            userDao.doAddSql(userEntity);
+            ajaxJson.setSuccess(true);
+            ajaxJson.setMessage("注册成功！");
+            return ajaxJson.getJsonStr();
+        }
+        else {
+            ajaxJson.setSuccess(false);
+            ajaxJson.setMessage("注册失败！");
+            return ajaxJson.getJsonStr();
+        }
+
+
+
     }
 }

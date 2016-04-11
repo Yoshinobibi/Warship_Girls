@@ -4,9 +4,11 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="sessionFactory" value="4bb39192-172f-48e7-9036-ecc86570f66e" />
+          <unit-entry name="sessionFactory" value="66620f0e-02a8-46fa-9867-a7ed70388169" />
         </datasource-map>
-        <naming-strategy-map />
+        <naming-strategy-map>
+          <unit-entry name="sessionFactory" />
+        </naming-strategy-map>
       </configuration>
     </facet>
     <facet type="web" name="Web">

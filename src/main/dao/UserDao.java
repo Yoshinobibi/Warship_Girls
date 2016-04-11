@@ -10,5 +10,6 @@ import java.util.List;
  */
 public interface UserDao {
     public void doAddSql(UserEntity userEntity);
-//    public List doQuerySql();
+    public List<UserEntity> doQuerySql(String s);
+    public void doUpdateSql(UserEntity userEntity);
 }
