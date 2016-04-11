@@ -11,6 +11,7 @@ import system.MD5Util;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -32,6 +33,8 @@ public class LoginController {
     @ResponseBody
     public String do_login(UserEntity userEntity, HttpServletRequest request) {
         AjaxJson ajaxJson = new AjaxJson();
+        HttpSession session = request.getSession();
+
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         List<UserEntity> userEntityList = userDao.doQuerySql(username);

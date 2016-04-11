@@ -62,13 +62,13 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class>
-                    <a href="#">Home</a>
+                    <a href="/">Home</a>
                 </li>
                 <li class>
-                    <a href="##">Home2</a>
+                    <a href="/">Home2</a>
                 </li>
                 <li class>
-                    <a href="###">Home3</a>
+                    <a href="/">Home3</a>
                 </li>
             </ul>
             <form id="navform" class="navbar-right">
@@ -78,7 +78,6 @@
         </div>
     </div>
 </div>
-
 <div id="Sign In">
     <div class="container">
         <div class="row">
@@ -101,7 +100,7 @@
 
                         <div class="form-group">
                             <div class="input-with-icon right">
-                                <input type="submit" class="btn btn-primary btn-block" name="signin" value="Sign in"/>
+                                <input type="submit" class="btn btn-primary btn-block" name="commit" value="Sign In" data-disable-with="Signing in..."/>
                             </div>
                         </div>
                     </form>
@@ -159,11 +158,12 @@
                     dataType: "json",
                     success: function(data) {
                         alert(data.message);
-                        if (data.success){
-                            window.location.href="http://www.baidu.com"
-                        }else if (!data.success){
-                            window.location.href="##"
-                        }
+                        $('#navform').html('<img src="<%=path%>/webpage/images/avatar.png" height="30" width="30" class="img-circle">'+username)
+//                        if (data.success){
+//                            window.location.href="http://www.baidu.com"
+//                        }else if (!data.success){
+//                            window.location.href="##"
+//                        }
                     }
                 })
             }
