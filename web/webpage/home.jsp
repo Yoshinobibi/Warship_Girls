@@ -65,7 +65,20 @@
     window.onload = function () {
         var name = $('#name').val();
         if(name != "null"){
-            $('#navform').html('<img src="/webpage/images/avatar.png" height="30" width="30" class="img-circle">'+name);
+//            $('#navform').html('<img src="/webpage/images/avatar.png" height="30" width="30" class="img-circle">'+name);
+            $('#navform').html('<li class="dropdown">'+
+                    '<a href="#" class="dropdown-toggle" data-toggle="dropdown">'+
+                    '<img src="/webpage/images/avatar.png" height="30" width="30" class="img-circle">'+
+                    '<span>'+name+'</span>'+
+                    '<b class="caret"></b>'+
+                    '</a>'+
+                    '<ul class="dropdown-menu">'+
+                    '<li><a href="#">bibi</a></li>'+
+                    '<li class="divider"></li>'+
+                    '<li><a href="/loginController.do?do_logout">Sign Out</a></li>'+
+                    '</ul>'+
+                    '</li>'
+            );
         }
     }
 </script>
