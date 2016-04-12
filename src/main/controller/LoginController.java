@@ -43,6 +43,7 @@ public class LoginController {
             if (userEntity.getUsername().equals(username)&&userEntity.getPassword().equals(MD5Util.md5(password))) {
                 ajaxJson.setSuccess(true);
                 ajaxJson.setMessage("登录成功！");
+                session.setAttribute("name",username);
                 return ajaxJson.getJsonStr();
             }
             else {
@@ -56,5 +57,12 @@ public class LoginController {
             ajaxJson.setMessage("登录失败！不存在此用户！");
             return ajaxJson.getJsonStr();
         }
+    }
+
+    @RequestMapping(params = "do_logout")
+    public String do_logout(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        session.removeAttribute("name");
+        return "login";
     }
 }

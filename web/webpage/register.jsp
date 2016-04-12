@@ -44,6 +44,7 @@
             margin-top: 8px;
         }
     </style>
+    <%%>
 </head>
 <body>
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -183,7 +184,7 @@
                     success: function(data) {
                         alert(data.message);
                         if (data.success){
-                            window.location.href="http://www.baidu.com"
+                            window.location="loginController.do?go_login"
                         }else if (!data.success){
                             window.location.href="##"
                         }
@@ -192,6 +193,15 @@
             }
         } );
     } );
+</script>
+<input type="hidden" id="name" value="<%=session.getAttribute("name")%>">
+<script type="text/javascript">
+    window.onload = function () {
+        var name = $('#name').val();
+        if(name != "null"){
+            $('#navform').html('<img src="/webpage/images/avatar.png" height="30" width="30" class="img-circle">'+name);
+        }
+    }
 </script>
 </body>
 </html>

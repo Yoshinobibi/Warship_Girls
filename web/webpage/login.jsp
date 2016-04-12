@@ -83,7 +83,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div id="login-wrap">
-                    <h2 class="title text-center" margin-bottom="">Sign In</h2>
+                    <h2 class="title text-center">Sign In</h2>
                     <form id="Register_Form" method="post" action="loginController.do?do_login">
 
                         <div class="form-group">
@@ -109,7 +109,6 @@
         </div>
     </div>
 </div>
-
 <script type="text/javascript">
     $( document ).ready( function () {
         $( "#Register_Form" ).validate( {
@@ -158,17 +157,38 @@
                     dataType: "json",
                     success: function(data) {
                         alert(data.message);
-                        $('#navform').html('<img src="<%=path%>/webpage/images/avatar.png" height="30" width="30" class="img-circle">'+username)
-//                        if (data.success){
-//                            window.location.href="http://www.baidu.com"
-//                        }else if (!data.success){
-//                            window.location.href="##"
-//                        }
+                        if (data.success){
+                            window.location.reload();
+                        }else if (!data.success){
+                            window.location.href="##";
+                        }
                     }
                 })
             }
         } );
     } );
+</script>
+<input type="hidden" id="name" value="<%=session.getAttribute("name")%>">
+<script type="text/javascript">
+    window.onload = function () {
+        var name = $('#name').val();
+        if(name != "null"){
+//            $('#navform').html('<img src="/webpage/images/avatar.png" height="30" width="30" class="img-circle">'+name);
+            $('#navform').html('<li class="dropdown">'+
+                                    '<a href="#" class="dropdown-toggle" data-toggle="dropdown">'+
+                                        '<img src="/webpage/images/avatar.png" height="30" width="30" class="img-circle">'+
+                                        '<span>'+name+'</span>'+
+                                            '<b class="caret"></b>'+
+                                    '</a>'+
+                                    '<ul class="dropdown-menu">'+
+                                        '<li><a href="#">bibi</a></li>'+
+                                        '<li class="divider"></li>'+
+                                        '<li><a href="/loginController.do?do_logout">Sign Out</a></li>'+
+                                    '</ul>'+
+                                '</li>'
+                    );
+        }
+    }
 </script>
 </body>
 </html>

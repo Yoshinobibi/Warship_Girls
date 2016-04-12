@@ -60,5 +60,14 @@
         </div>
     </div>
 </div>
+<input type="hidden" id="name" value="<%=session.getAttribute("name")%>">
+<script type="text/javascript">
+    window.onload = function () {
+        var name = $('#name').val();
+        if(name != "null"){
+            $('#navform').html('<img src="/webpage/images/avatar.png" height="30" width="30" class="img-circle">'+name);
+        }
+    }
+</script>
 </body>
 </html>
