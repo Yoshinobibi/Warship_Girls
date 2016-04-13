@@ -11,7 +11,9 @@ import system.MD5Util;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -60,11 +62,12 @@ public class LoginController {
     }
 
     @RequestMapping(params = "do_logout")
-    public String do_logout(HttpServletRequest request){
+    public void do_logout(HttpServletRequest request, HttpServletResponse response)throws IOException{
         HttpSession session = request.getSession();
         if (session!=null){
+            session.removeAttribute("name");
             session.invalidate();
         }
-        return "login";
+        response.sendRedirect("/loginController.do?go_login");
     }
 }
