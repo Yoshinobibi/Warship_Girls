@@ -22,9 +22,9 @@
 </head>
 <body>
 <input type="hidden" id="name" value="<%=session.getAttribute("name")%>">
-<form action="warshipController.do?do_add" method="post">
-    <input type="text" name="name">
-    <input type="submit" value="submit">
+<form>
+    <input type="text" name="name" id="n">
+    <input type="button" value="submit" onclick="sub()">
 </form>
 <input type="button" value="show" onclick="show()">
 <ul id="list"></ul>
@@ -39,6 +39,20 @@
                         $("#list").append('<li>' + item.name + '</li>')
                     });
                 }
+        })
+    }
+    function sub() {
+        var name = $('#n').val().trim();
+        $.ajax({
+            type:"post",
+            url: "warshipController.do?do_add",
+            data:{
+                name:name
+            },
+            dataType: "json",
+            success: function(data) {
+                alert(data.message);
+            }
         })
     }
 </script>

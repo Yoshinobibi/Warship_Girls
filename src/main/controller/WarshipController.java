@@ -21,6 +21,7 @@ public class WarshipController {
 
     @Resource
     WarshipDao warshipDao;
+
     @RequestMapping(params = "go_warship")
     public String go_warship(){
         return "warship";
