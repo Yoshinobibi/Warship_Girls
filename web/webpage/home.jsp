@@ -44,13 +44,13 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class>
-                    <a href="#">Home</a>
+                    <a href="warshipController.do?go_warship">Warship</a>
                 </li>
                 <li class>
-                    <a href="##">Home2</a>
+                    <a href="#">Home2</a>
                 </li>
                 <li class>
-                    <a href="###">Home3</a>
+                    <a href="#">Home3</a>
                 </li>
             </ul>
             <form id="navform" class="navbar-right">

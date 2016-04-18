@@ -62,13 +62,13 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class>
-                    <a href="#">Home</a>
+                    <a href="warshipController.do?go_warship">Warship</a>
                 </li>
                 <li class>
-                    <a href="##">Home2</a>
+                    <a href="#">Home2</a>
                 </li>
                 <li class>
-                    <a href="###">Home3</a>
+                    <a href="#">Home3</a>
                 </li>
             </ul>
             <form id="navform" class="navbar-right">
@@ -199,7 +199,6 @@
     window.onload = function () {
         var name = $('#name').val();
         if(name != "null"){
-//            $('#navform').html('<img src="/webpage/images/avatar.png" height="30" width="30" class="img-circle">'+name);
             $('#navform').html('<li class="dropdown">'+
                     '<a href="#" class="dropdown-toggle" data-toggle="dropdown">'+
                     '<img src="/webpage/images/avatar.png" height="30" width="30" class="img-circle">'+

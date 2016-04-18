@@ -47,6 +47,7 @@
     </style>
 </head>
 <body>
+<input type="hidden" id="name" value="<%=session.getAttribute("name")%>">
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -62,13 +63,13 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class>
-                    <a href="/">Home</a>
+                    <a href="warshipController.do?go_warship">Warship</a>
                 </li>
                 <li class>
-                    <a href="/">Home2</a>
+                    <a href="#">Home2</a>
                 </li>
                 <li class>
-                    <a href="/">Home3</a>
+                    <a href="#">Home3</a>
                 </li>
             </ul>
             <form id="navform" class="navbar-right">
@@ -160,7 +161,7 @@
                         if (data.success){
                             window.location.reload();
                         }else if (!data.success){
-                            window.location.href="##";
+                            window.location.href="#";
                         }
                     }
                 })
@@ -168,12 +169,17 @@
         } );
     } );
 </script>
-<input type="hidden" id="name" value="<%=session.getAttribute("name")%>">
 <script type="text/javascript">
+    function isLogin() {
+        var name = $('#name').val();
+        if(name!="null")
+                return true;
+        else
+                return false;
+    }
     window.onload = function () {
         var name = $('#name').val();
-        if(name != "null"){
-//            $('#navform').html('<img src="/webpage/images/avatar.png" height="30" width="30" class="img-circle">'+name);
+        if(isLogin()){
             $('#navform').html('<li class="dropdown">'+
                                     '<a href="#" class="dropdown-toggle" data-toggle="dropdown">'+
                                         '<img src="/webpage/images/avatar.png" height="30" width="30" class="img-circle">'+
