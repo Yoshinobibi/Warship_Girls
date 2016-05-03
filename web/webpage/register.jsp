@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 95
-  Date: 2016/4/7
-  Time: 19:30
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
@@ -14,19 +7,13 @@
 <html>
 <head>
     <title>register</title>
-    <link  href="<%=path%>/webpage/plug-in/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="<%=path%>/webpage/plug-in/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="<%=path%>/webpage/plug-in/css/main.css" rel="stylesheet" type="text/css">
     <script src="<%=path%>/webpage/plug-in/jquery/jquery-1.12.2.min.js"></script>
     <script src="<%=path%>/webpage/plug-in/bootstrap/js/bootstrap.min.js"></script>
     <script src="<%=path%>/webpage/plug-in/jquery/jquery.validate.min.js"></script>
+    <script src="<%=path%>/webpage/plug-in/js/main.js"></script>
     <style type="text/css">
-        body {  padding-top: 50px;  }
-        #navform {
-            padding: 10px 15px;
-            border-top: 1px solid #EEEEEE;
-            border-bottom: 1px solid #EEEEEE;
-            -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1),0 1px 0 rgba(255,255,255,.1);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,.1),0 1px 0 rgba(255,255,255,.1);
-        }
         #register-wrap {
             text-align: center;
             max-width: 455px;
@@ -71,7 +58,7 @@
                     <a href="#">Home3</a>
                 </li>
             </ul>
-            <form id="navform" class="navbar-right">
+            <form id="navi_form" class="navbar-right">
                 <a class="btn btn-primary" href="loginController.do?go_login">Sign In</a>
                 <a class="btn btn-primary" href="userController.do?go_register">Sign Up</a>
             </form>
@@ -194,27 +181,7 @@
         } );
     } );
 </script>
-<input type="hidden" id="name" value="<%=session.getAttribute("name")%>">
-<script type="text/javascript">
-    window.onload = function () {
-        var name = $('#name').val();
-        if(name != "null"){
-            $('#navform').html('<li class="dropdown">'+
-                    '<a href="#" class="dropdown-toggle" data-toggle="dropdown">'+
-                    '<img src="/webpage/images/avatar.png" height="30" width="30" class="img-circle">'+
-                    '<span>'+name+'</span>'+
-                    '<b class="caret"></b>'+
-                    '</a>'+
-                    '<ul class="dropdown-menu">'+
-                    '<li><a href="#">bibi</a></li>'+
-                    '<li class="divider"></li>'+
-                    '<li><a href="/loginController.do?do_logout">Sign Out</a></li>'+
-                    '</ul>'+
-                    '</li>'
-            );
-        }
-    }
-</script>
+<input type="hidden" id="session" value="<%=session.getAttribute("name")%>">
 </body>
 </html>
 

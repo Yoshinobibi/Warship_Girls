@@ -31,9 +31,8 @@ public class WarshipController {
     @ResponseBody
     public String do_show(){
         List<WarshipEntity> list =  warshipDao.doQuerySql();
-        String json = JSON.toJSONString(list, true);
-        System.out.println(json);
-        return json;
+        System.out.println(JSON.toJSONString(list, true));
+        return JSON.toJSONString(list, true);
     }
 
     @RequestMapping(params = "do_add")
@@ -41,7 +40,11 @@ public class WarshipController {
     public String do_add(WarshipEntity warshipEntity, HttpServletRequest request){
         AjaxJson ajaxJson = new AjaxJson();
         String name = request.getParameter("name");
+        String type = request.getParameter("type");
+        System.out.println(name);
+        System.out.println(type);
         warshipEntity.setName(name);
+        warshipEntity.setType(type);
         warshipDao.doAddSql(warshipEntity);
         ajaxJson.setSuccess(true);
         ajaxJson.setMessage("添加成功！");

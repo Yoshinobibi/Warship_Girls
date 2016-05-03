@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Warship</title>
+    <link href="/webpage/plug-in/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/webpage/plug-in/css/main.css" rel="stylesheet" type="text/css">
+    <script src="/webpage/plug-in/jquery/jquery-1.12.2.min.js"></script>
+    <script src="/webpage/plug-in/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Warship Girls</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class>
+                        <a href="warshipController.do?go_warship">Warship</a>
+                    </li>
+                    <li class>
+                        <a href="#">Home2</a>
+                    </li>
+                    <li class>
+                        <a href="#">Home3</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="list-group">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul id="list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+    window.onload = function show(){
+        $.ajax({
+            type:"get",
+            url: "warshipController.do?do_show",
+            dataType: "json",
+            success: function(data) {
+                $.each(data, function(i, item) {
+                    $("#list").append('<li class="list-group-item">' + '名称:' + item.name +'|'+ '型号:' + item.type + '</li>')
+                });
+            }
+        })
+    }
+</script>
+</body>
+</html>
