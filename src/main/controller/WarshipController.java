@@ -30,7 +30,11 @@ public class WarshipController {
     @RequestMapping(params = "do_show")
     @ResponseBody
     public String do_show(){
-        List<WarshipEntity> list =  warshipDao.doQuerySql();
+        //default order
+        String order = "ship_no";
+        //default way
+        String way = "ASC";
+        List<WarshipEntity> list =  warshipDao.doQuerySql(order,way);
         System.out.println(JSON.toJSONString(list, true));
         return JSON.toJSONString(list, true);
     }

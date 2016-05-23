@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface WarshipDao {
     public void doAddSql(WarshipEntity warshipEntity);
-    public List<WarshipEntity> doQuerySql();
+    public List<WarshipEntity> doQuerySql(String order,String way);
 }

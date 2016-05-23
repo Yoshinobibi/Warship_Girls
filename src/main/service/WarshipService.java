@@ -20,8 +20,8 @@ public class WarshipService extends HibernateUtil implements WarshipDao {
         getSession().save(warshipEntity);
     }
     @Override
-    public List<WarshipEntity> doQuerySql(){
-        String hql = "select warshipEntity from WarshipEntity warshipEntity order by ship_no";
+    public List<WarshipEntity> doQuerySql(String order,String way){
+        String hql = "select warshipEntity from WarshipEntity warshipEntity order by "+ order + " " + way;
         Query query = getSession().createQuery(hql);
         return query.list();
     }
