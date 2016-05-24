@@ -4,7 +4,9 @@ import com.alibaba.fastjson.JSON;
 import main.dao.WarshipDao;
 import main.entity.WarshipEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import system.AjaxJson;
 
@@ -15,19 +17,19 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/4/18.
  */
-@Controller
-@RequestMapping("/warshipController")
+@Controller("warshipController")
+@RequestMapping("/warship")
 public class WarshipController {
 
     @Resource
     WarshipDao warshipDao;
 
-    @RequestMapping(params = "go_warship")
+    @RequestMapping(value = "/list")
     public String go_warship(){
         return "warship";
     }
 
-    @RequestMapping(params = "do_show")
+    @RequestMapping(value = "/show")
     @ResponseBody
     public String do_show(){
         //default order
@@ -39,7 +41,7 @@ public class WarshipController {
         return JSON.toJSONString(list, true);
     }
 
-    @RequestMapping(params = "do_add")
+    @RequestMapping(value = "/add")
     @ResponseBody
     public String do_add(WarshipEntity warshipEntity, HttpServletRequest request){
         AjaxJson ajaxJson = new AjaxJson();

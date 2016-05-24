@@ -23,7 +23,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class>
-                        <a href="warshipController.do?go_warship">Warship</a>
+                        <a href="/warship/list">Warship</a>
                     </li>
                     <li class>
                         <a href="#">Home2</a>
@@ -48,7 +48,7 @@
     window.onload = function show(){
         $.ajax({
             type:"get",
-            url: "warshipController.do?do_show",
+            url: "/warship/show",
             dataType: "json",
             success: function(data) {
                 $.each(data, function(i, item) {
