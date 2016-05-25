@@ -25,13 +25,13 @@ public class WarshipController {
     WarshipDao warshipDao;
 
     @RequestMapping(value = "/list")
-    public String go_warship(){
+    public String goWarship(){
         return "warship";
     }
 
     @RequestMapping(value = "/show")
     @ResponseBody
-    public String do_show(){
+    public String doShow(){
         //default order
         String order = "ship_no";
         //default way
@@ -43,7 +43,7 @@ public class WarshipController {
 
     @RequestMapping(value = "/add")
     @ResponseBody
-    public String do_add(WarshipEntity warshipEntity, HttpServletRequest request){
+    public String doAdd(WarshipEntity warshipEntity, HttpServletRequest request){
         AjaxJson ajaxJson = new AjaxJson();
         String name = request.getParameter("name");
         String type = request.getParameter("type");
