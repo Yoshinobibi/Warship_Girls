@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class WarshipEntity {
     /*ID*/
     private String id;
-    /*图鉴编号*/
+    /*舰船编号*/
     private int ship_no;
     /*舰船名*/
     private String name;
@@ -86,7 +86,7 @@ public class WarshipEntity {
         this.name = name;
     }
 
-    @Column
+    @Column()
     public int getStars() {
         return stars;
     }

@@ -10,8 +10,10 @@ import javax.persistence.*;
 @Entity
 @Table(name = "t_map")
 public class MapEntity {
+    /*ID*/
     private String id;
-    /*图鉴编号*/
+    /*地图编号*/
+    private String map_no;
     @Id
     @GenericGenerator(name="Generator",strategy = "uuid2")
     @GeneratedValue(generator = "Generator")

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import system.AjaxJson;
 
@@ -40,6 +41,12 @@ public class WarshipController {
         System.out.println(JSON.toJSONString(list, true));
         return JSON.toJSONString(list, true);
     }
+//
+//    @RequestMapping(value = "/detail")
+//    @ResponseBody
+//    public String doDetail(@RequestParam("id") String id){
+//
+//    }
 
     @RequestMapping(value = "/add")
     @ResponseBody
