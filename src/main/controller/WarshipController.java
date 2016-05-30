@@ -50,14 +50,15 @@ public class WarshipController {
 
     @RequestMapping(value = "/add")
     @ResponseBody
-    public String doAdd(WarshipEntity warshipEntity, HttpServletRequest request){
+    public String doAdd(WarshipEntity warshipEntity,
+                        HttpServletRequest request,
+                        @RequestParam("ship_no") String ship_no,
+                        @RequestParam("name") String name){
         AjaxJson ajaxJson = new AjaxJson();
-        String name = request.getParameter("name");
-        String type = request.getParameter("type");
         System.out.println(name);
-        System.out.println(type);
+        System.out.println(ship_no);
         warshipEntity.setName(name);
-        warshipEntity.setType(type);
+        warshipEntity.setType(ship_no);
         warshipDao.doAddSql(warshipEntity);
         ajaxJson.setSuccess(true);
         ajaxJson.setMessage("添加成功！");

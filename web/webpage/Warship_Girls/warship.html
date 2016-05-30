@@ -32,9 +32,36 @@
                         <a href="/map/list">Map</a>
                     </li>
                 </ul>
+                <form id="add_form" class="navbar-right">
+                    <a class="btn btn-primary" data-toggle="modal" data-target="#add_warship">Add Warship</a>
+                </form>
             </div>
         </div>
     </div>
+    <!--模态框-->
+    <div class="modal fade" id="add_warship" tabindex="-1" aria-labelledby="myModalLabel" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Add Warship</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <input type="text" id="ship_no" class="form-control" placeholder="Ship_no"/>
+                    </div>
+                    <p></p>
+                    <div class="input-group">
+                        <input type="text" id="name" class="form-control" placeholder="Name"/>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">提交</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="list-group">
         <div class="container">
             <div class="row">
@@ -52,11 +79,18 @@
             dataType: "json",
             success: function(data) {
                 $.each(data, function(i, item) {
-                    $("#list").append('<li class="list-group-item">' + '名称:' + item.name +'|'+ '型号:' + item.type + '</li>')
+                    $("#list").append('<li class="list-group-item">' + '名称:' + item.name +'|'+ '型号:' + item.ship_no + '</li>')
                 });
             }
         })
+    };
+    $(function(){$('#add_warship').modal('hide')});
+    function sub() {
+        var ship_no = $('#ship').val().trim();
+        var name = $('#name').val().trim();
+        window.location.href = '/warship/add?ship_no='+ship_no+'&name'+name;
     }
+
 </script>
 </body>
 </html>
