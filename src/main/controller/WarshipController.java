@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import system.AjaxJson;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.net.URLDecoder;
 import java.util.List;
 
 /**
@@ -52,13 +54,16 @@ public class WarshipController {
     @ResponseBody
     public String doAdd(WarshipEntity warshipEntity,
                         HttpServletRequest request,
-                        @RequestParam("ship_no") String ship_no,
-                        @RequestParam("name") String name){
+                        @RequestParam("ship_image") MultipartFile ship_image,
+                        @RequestParam("ship_no") int ship_no,
+                        @RequestParam("name") String name)throws Exception{
         AjaxJson ajaxJson = new AjaxJson();
         System.out.println(name);
         System.out.println(ship_no);
+        System.out.println(ship_image.getSize());
+//        warshipEntity.setName(URLDecoder.decode(name,"utf8"));
         warshipEntity.setName(name);
-        warshipEntity.setType(ship_no);
+        warshipEntity.setShip_no(ship_no);
         warshipDao.doAddSql(warshipEntity);
         ajaxJson.setSuccess(true);
         ajaxJson.setMessage("添加成功！");

@@ -1,6 +1,7 @@
 package main.entity;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 
@@ -12,6 +13,8 @@ import javax.persistence.*;
 public class WarshipEntity {
     /*ID*/
     private String id;
+    /*舰船图片*/
+    private String ship_image;
     /*舰船编号*/
     private int ship_no;
     /*舰船名*/
@@ -166,7 +169,13 @@ public class WarshipEntity {
         this.maxtorpedo = maxtorpedo;
     }
 
-
+    @Column
+    public String getShip_image() {
+        return ship_image;
+    }
+    public void setShip_image(String ship_image) {
+        this.ship_image = ship_image;
+    }
 
     @Column
     public int getLuck() {

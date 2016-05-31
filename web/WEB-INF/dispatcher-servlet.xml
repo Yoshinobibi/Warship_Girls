@@ -23,7 +23,6 @@
     <mvc:resources mapping="/webpage/**" location="/webpage/"/>
 
     <context:component-scan base-package="main.controller"/>
-
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/webpage/Warship_Girls/"/>
         <property name="suffix" value=".html"/>

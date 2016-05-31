@@ -47,16 +47,20 @@
                 </div>
                 <div class="modal-body">
                     <div class="input-group">
-                        <input type="text" id="ship_no" class="form-control" placeholder="Ship_no"/>
+                       <input type="file" id="ship_image" class="form-control" value="舰娘照片" formenctype="multipart/form-data">
                     </div>
                     <p></p>
                     <div class="input-group">
-                        <input type="text" id="name" class="form-control" placeholder="Name"/>
+                        <input type="text" id="ship_no" class="form-control" placeholder="舰娘编号"/>
+                    </div>
+                    <p></p>
+                    <div class="input-group">
+                        <input type="text" id="ship_name" class="form-control" placeholder="舰娘名称"/>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">提交</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <a type="button" class="btn btn-primary" onclick="sub()">提交</a>
+                    <a type="button" class="btn btn-default" data-dismiss="modal">关闭</a>
                 </div>
             </div>
         </div>
@@ -72,25 +76,29 @@
         </div>
     </div>
 <script type="text/javascript">
-    window.onload = function show(){
+    $(function(){
         $.ajax({
             type:"get",
             url: "/warship/show",
             dataType: "json",
             success: function(data) {
                 $.each(data, function(i, item) {
-                    $("#list").append('<li class="list-group-item">' + '名称:' + item.name +'|'+ '型号:' + item.ship_no + '</li>')
+                    $("#list").append('<li class="list-group-item">'+
+//                            '<a href="/warship/detail?"></a>'+
+                            '<img src="/webpage/image/warship/M_NORMAL_' + item.ship_no + '.png" width="78" height="124">' +
+                            '名称:' + item.name +'|'+ '图鉴编号:' + item.ship_no +
+                            '</li>')
                 });
             }
         })
-    };
+    });
     $(function(){$('#add_warship').modal('hide')});
     function sub() {
-        var ship_no = $('#ship').val().trim();
-        var name = $('#name').val().trim();
-        window.location.href = '/warship/add?ship_no='+ship_no+'&name'+name;
-    }
+        var url = "/warship/add?ship_image="+$('#ship_image')+"&ship_no="+$('#ship_no').val().trim()+"&name="+$('#ship_name').val().trim();
+//        location.href = encodeURI(encodeURI(url));
+        location.href = url;
 
+    }
 </script>
 </body>
 </html>
