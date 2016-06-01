@@ -16,12 +16,22 @@ import java.util.List;
 public class WarshipService extends HibernateUtil implements WarshipDao {
 
     @Override
-    public void doAddSql(WarshipEntity warshipEntity){
+    public void doCreateSql(WarshipEntity warshipEntity){
         getSession().save(warshipEntity);
     }
+//    @Override
+//    public void doUpdateSql(WarshipEntity warshipEntity);{
+//        getSession().update(warshipEntity);
+//    }
     @Override
     public List<WarshipEntity> doQuerySql(String order,String way){
         String hql = "select warshipEntity from WarshipEntity warshipEntity order by "+ order + " " + way;
+        Query query = getSession().createQuery(hql);
+        return query.list();
+    }
+    @Override
+    public List<WarshipEntity> doQuerySql(int id){
+        String hql = "select warshipEntity from WarshipEntity warshipEntity where warshipEntity.ship_no =" + id;
         Query query = getSession().createQuery(hql);
         return query.list();
     }

@@ -47,10 +47,6 @@
                 </div>
                 <div class="modal-body">
                     <div class="input-group">
-                       <input type="file" id="ship_image" class="form-control" value="舰娘照片" formenctype="multipart/form-data">
-                    </div>
-                    <p></p>
-                    <div class="input-group">
                         <input type="text" id="ship_no" class="form-control" placeholder="舰娘编号"/>
                     </div>
                     <p></p>
@@ -83,9 +79,9 @@
             dataType: "json",
             success: function(data) {
                 $.each(data, function(i, item) {
-                    $("#list").append('<li class="list-group-item">'+
+                    $("#list").append('<li class="list-group-item" href="/warship/detail">'+
 //                            '<a href="/warship/detail?"></a>'+
-                            '<img src="/webpage/image/warship/M_NORMAL_' + item.ship_no + '.png" width="78" height="124">' +
+                            '<img src="/webpage/image/warship/M_NORMAL_' + item.ship_no + '.png" width="78" height="124" href="/warship/detail">' +
                             '名称:' + item.name +'|'+ '图鉴编号:' + item.ship_no +
                             '</li>')
                 });
@@ -93,12 +89,25 @@
         })
     });
     $(function(){$('#add_warship').modal('hide')});
-    function sub() {
-        var url = "/warship/add?ship_image="+$('#ship_image')+"&ship_no="+$('#ship_no').val().trim()+"&name="+$('#ship_name').val().trim();
-//        location.href = encodeURI(encodeURI(url));
-        location.href = url;
 
+    function sub() {
+        $.ajax({
+            type:"post",
+            url:"/warship/add?ship_no="+$('#ship_no').val().trim()+"&name="+$('#ship_name').val().trim(),
+            dataType:"json",
+            contentType: "application/json;charset=UTF-8",
+            success:function (data) {
+                $('#add_warship').modal('hide');
+                alert(data.message);
+                if (data.success){
+                    window.location = "/warship/list"
+                }else if (!data.success){
+                    window.location = "#"
+                }
+            }
+        })
     }
+
 </script>
 </body>
 </html>

@@ -11,10 +11,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "t_warship")
 public class WarshipEntity {
-    /*ID*/
-    private String id;
-    /*舰船图片*/
-    private String ship_image;
     /*舰船编号*/
     private int ship_no;
     /*舰船名*/
@@ -63,16 +59,6 @@ public class WarshipEntity {
     private int speed;
 
     @Id
-    @GenericGenerator(name="Generator",strategy = "uuid2")
-    @GeneratedValue(generator = "Generator")
-    @Column(nullable = false,length = 36)
-    public String getId(){
-        return id;
-    }
-    public void setId(String id){
-        this.id = id;
-    }
-
     @Column(nullable = false)
     public int getShip_no() {
         return ship_no;
@@ -167,14 +153,6 @@ public class WarshipEntity {
     }
     public void setMaxtorpedo(int maxtorpedo) {
         this.maxtorpedo = maxtorpedo;
-    }
-
-    @Column
-    public String getShip_image() {
-        return ship_image;
-    }
-    public void setShip_image(String ship_image) {
-        this.ship_image = ship_image;
     }
 
     @Column
