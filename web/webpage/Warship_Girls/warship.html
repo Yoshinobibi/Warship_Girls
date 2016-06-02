@@ -9,6 +9,7 @@
     <script src="/webpage/plug-in/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <!--导航栏-->
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -47,10 +48,11 @@
                 </div>
                 <div class="modal-body">
                     <div class="input-group">
-                        <input type="text" id="ship_no" class="form-control" placeholder="舰娘编号"/>
+                        舰娘编号：<input type="text" id="ship_no" class="form-control" placeholder="舰娘编号"/>
                     </div>
                     <p></p>
                     <div class="input-group">
+                        <span class="label label-default"></span>
                         <input type="text" id="ship_name" class="form-control" placeholder="舰娘名称"/>
                     </div>
                 </div>
@@ -61,7 +63,7 @@
             </div>
         </div>
     </div>
-
+    <!--主体-->
     <div class="list-group">
         <div class="container">
             <div class="row">
@@ -79,16 +81,22 @@
             dataType: "json",
             success: function(data) {
                 $.each(data, function(i, item) {
-                    $("#list").append('<li class="list-group-item" href="/warship/detail">'+
-//                            '<a href="/warship/detail?"></a>'+
-                            '<img src="/webpage/image/warship/M_NORMAL_' + item.ship_no + '.png" width="78" height="124" href="/warship/detail">' +
-                            '名称:' + item.name +'|'+ '图鉴编号:' + item.ship_no +
+                    $("#list").append('<li class="list-group-item">'+
+                                '<a href="/warship/detail?ship_no=' + item.ship_no + '">'+
+                                    '<div>'+
+                                        '<img src="/webpage/image/warship/M_NORMAL_' + item.ship_no + '.png" width="max-width*0.3" height="max-height*0.3">' +
+                                    '</div>'+
+                                    '<div>'+
+                                        '名称:' + item.name +'|'+ '图鉴编号:' + item.ship_no  +
+                                    '</div>'+
+                                '</a>'+
                             '</li>')
                 });
             }
         })
     });
-    $(function(){$('#add_warship').modal('hide')});
+    $(function(){$("[data-toggle='modal']").modal('hide')});
+    $(function(){$("[data-toggle='popover']").popover();});
 
     function sub() {
         $.ajax({
