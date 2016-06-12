@@ -47,18 +47,17 @@
                     <h4 class="modal-title" id="myModalLabel">Add Warship</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="input-group">
-                        舰娘编号：<input type="text" id="ship_no" class="form-control" placeholder="舰娘编号"/>
-                    </div>
-                    <p></p>
-                    <div class="input-group">
-                        <span class="label label-default"></span>
-                        <input type="text" id="ship_name" class="form-control" placeholder="舰娘名称"/>
-                    </div>
+                        <div class="input-group">
+                            舰娘编号:<input type="text" id="ship_no" class="form-control" placeholder="舰娘编号"/>
+                        </div>
+                        <p></p>
+                        <div class="input-group">
+                            舰娘名称:<input type="text" id="ship_name" class="form-control" placeholder="舰娘名称"/>
+                        </div>
                 </div>
                 <div class="modal-footer">
-                    <a type="button" class="btn btn-primary" onclick="sub()">提交</a>
-                    <a type="button" class="btn btn-default" data-dismiss="modal">关闭</a>
+                    <button type="button" class="btn btn-primary" onclick="sub()">提交</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                 </div>
             </div>
         </div>
@@ -67,7 +66,7 @@
     <div class="list-group">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-sm-12">
                     <ul id="list"></ul>
                 </div>
             </div>
@@ -81,15 +80,19 @@
             dataType: "json",
             success: function(data) {
                 $.each(data, function(i, item) {
-                    $("#list").append('<li class="list-group-item">'+
-                                '<a href="/warship/detail?ship_no=' + item.ship_no + '">'+
-                                    '<div>'+
-                                        '<img src="/webpage/image/warship/M_NORMAL_' + item.ship_no + '.png" width="max-width*0.3" height="max-height*0.3">' +
+                    $("#list").append(
+                            '<li class="list-group-item row">'+
+                                '<div class="col-sm-4 row" align="center"> '+
+                                    '<div class="col-sm-6">'+
+                                        '<img src="/webpage/image/warship/M_NORMAL_' + item.ship_no + '.png" width="136" height="248" class="img-thumbnail">' +
                                     '</div>'+
-                                    '<div>'+
-                                        '名称:' + item.name +'|'+ '图鉴编号:' + item.ship_no  +
+                                    '<div class="col-sm-6">'+
+                                        '<img src="/webpage/image/warship/M_BROKEN_' + item.ship_no + '.png" width="136" height="248" class="img-thumbnail">' +
                                     '</div>'+
-                                '</a>'+
+                                '</div>'+
+                                '<div class="col-sm-8" align="center">'+
+                                    '<h3>名称:' + item.name +'|'+ '图鉴编号:' + item.ship_no  +'</h3>'+
+                                '</div>'+
                             '</li>')
                 });
             }
